@@ -50,9 +50,7 @@ async def answer(bot, query):
         )
 
     if results:
-        switch_pm_text = f"{emoji.FILE_FOLDER} Hasil"
-        if text:
-            switch_pm_text += f" Dari {text}"
+        switch_pm_text = f"{emoji.CHECK_MARK} Tersedia"
 
         await query.answer(
             results=results,
