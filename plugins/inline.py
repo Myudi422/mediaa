@@ -50,9 +50,9 @@ async def answer(bot, query):
         )
 
     if results:
-        switch_pm_text = f"{emoji.FILE_FOLDER} Results"
+        switch_pm_text = f"{emoji.FILE_FOLDER} Hasil"
         if text:
-            switch_pm_text += f" for {text}"
+            switch_pm_text += f" Dari {text}"
 
         await query.answer(
             results=results,
@@ -64,8 +64,6 @@ async def answer(bot, query):
     else:
 
         switch_pm_text = f'{emoji.CROSS_MARK} Belum ada, silahkan lapor admin!'
-        if text:
-            switch_pm_text += f' for "{text}"'
 
         await query.answer(
             results=[],
@@ -80,9 +78,9 @@ def get_reply_markup(username, query):
     buttons = [
         [
             InlineKeyboardButton('🔍 Cari Lagi', switch_inline_query_current_chat=query),
-            InlineKeyboardButton('❣️Donasi', url=url),
+            InlineKeyboardButton('✲ Donasi', url=url),
         ],
-        [InlineKeyboardButton('Daftar Anime Tersedia', url="https://t.me/downloadanimebatch/302")]
+        [InlineKeyboardButton('⌘ Daftar Anime', url="https://t.me/downloadanimebatch/302")]
     ]
     return InlineKeyboardMarkup(buttons)
 
