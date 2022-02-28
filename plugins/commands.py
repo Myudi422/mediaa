@@ -65,21 +65,17 @@ async def delete(bot, message):
         await message.reply('Reply to file with /delete which you want to delete', quote=True)
         return
 
-    for kind in ("document", "video", "audio"):
-        media = getattr(reply, kind, None)
-        if media is not None:
-            break
     else:
         await msg.edit('This is not supported file format')
         return
-
-    collection = db[COLLECTION_NAME]
-    result = await collection.delete_one({
+    
+    result = await Media.collection.delete_one({
         'file_name': media.file_name,
         'file_size': media.file_size,
         'mime_type': media.mime_type,
-        'caption': reply.caption
+        'caption': reply.caption.html if reply.caption else None
     })
+
     if result.deleted_count:
         await msg.edit('File is successfully deleted from database')
     else:
