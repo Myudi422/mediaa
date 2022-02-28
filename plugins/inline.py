@@ -63,7 +63,7 @@ async def answer(bot, query):
         )
     else:
 
-        switch_pm_text = f'{emoji.CROSS_MARK} Belum ada, silahkan lapor admin!'
+        switch_pm_text = f'{emoji.CROSS_MARK} silahkan request ditombol menu.'
 
         await query.answer(
             results=[],
