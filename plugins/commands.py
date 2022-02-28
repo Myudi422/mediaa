@@ -1,7 +1,8 @@
+import os
+import logging
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from info import START_MSG, CHANNELS, ADMINS, COLLECTION_NAME
-from utils import Media, db
+from info import START_MSG, CHANNELS, ADMINS, INVITE_MSG
 
 
 @Client.on_message(filters.command('start'))
