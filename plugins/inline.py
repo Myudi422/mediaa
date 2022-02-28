@@ -20,7 +20,7 @@ async def answer(bot, query):
         await query.answer(
             results=[],
             cache_time=0,
-            switch_pm_text='You have to subscribe channel',
+            switch_pm_text='Subscribe Channel dulu, klik disini!',
             switch_pm_parameter="subscribe",
         )
         return
@@ -44,7 +44,7 @@ async def answer(bot, query):
                 title=file.file_name,
                 file_id=file.file_id,
                 caption=file.caption or "",
-                description=f'Size: {size_formatter(file.file_size)}\nType: {file.file_type}',
+                description=f'Ukuran: {size_formatter(file.file_size)}\nTipe: {file.file_type}',
                 reply_markup=reply_markup
             )
         )
@@ -63,7 +63,7 @@ async def answer(bot, query):
         )
     else:
 
-        switch_pm_text = f'{emoji.CROSS_MARK} No results'
+        switch_pm_text = f'{emoji.CROSS_MARK} Belum ada, silahkan lapor admin!'
         if text:
             switch_pm_text += f' for "{text}"'
 
@@ -76,12 +76,13 @@ async def answer(bot, query):
 
 
 def get_reply_markup(username, query):
-    url = 't.me/share/url?url=' + quote(SHARE_BUTTON_TEXT.format(username=username))
+    url = 'trakteer.id/ccgnimeX'
     buttons = [
         [
-            InlineKeyboardButton('Search again', switch_inline_query_current_chat=query),
-            InlineKeyboardButton('Share bot', url=url),
-        ]
+            InlineKeyboardButton('🔍 Cari Lagi', switch_inline_query_current_chat=query),
+            InlineKeyboardButton('❣️Donasi', url=url),
+        ],
+        [InlineKeyboardButton('Daftar Anime Tersedia', url="https://t.me/downloadanimebatch/302")]
     ]
     return InlineKeyboardMarkup(buttons)
 
