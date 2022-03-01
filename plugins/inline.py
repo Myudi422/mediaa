@@ -67,7 +67,7 @@ async def answer(bot, query):
             results=[],
             cache_time=cache_time,
             switch_pm_text=switch_pm_text,
-            switch_pm_parameter="subscribe",
+            switch_pm_parameter="okay",
         )
 
 
