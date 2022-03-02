@@ -71,7 +71,7 @@ async def answer(bot, query):
         )
 
 
-def get_reply_markup(username, query):
+def get_reply_markup(username, query, audio):
     url = 'trakteer.id/ccgnimeX'
     buttons = [
         [
