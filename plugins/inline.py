@@ -78,7 +78,7 @@ def get_reply_markup(username, query):
             InlineKeyboardButton('🔍 Cari Lagi', switch_inline_query_current_chat=query),
             InlineKeyboardButton('✲ Donasi', url=url),
         ],
-        [InlineKeyboardButton('⌘ Daftar Anime', callback_data=f"bantuan")]
+        [InlineKeyboardButton('⌘ Daftar Anime', callback_data=f"menu")]
     ]
     return InlineKeyboardMarkup(buttons)
 
