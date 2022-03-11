@@ -5,6 +5,10 @@ from pyrogram import Client, emoji, filters
 from pyrogram.errors import UserNotParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
+from pyrogram.types import CallbackQuery, InputMediaPhoto, Message
+from pyromod.helpers import array_chunk, ikb
+
+
 from utils import get_search_results, InlineQueryResultCachedDocument
 from info import CACHE_TIME, SHARE_BUTTON_TEXT, AUTH_USERS, AUTH_CHANNEL
 
@@ -71,14 +75,14 @@ async def answer(bot, query):
         )
 
 
-def get_reply_markup(username, query):
+def get_reply_markup(username, query, callback: CallbackQuery):
     url = 'trakteer.id/ccgnimeX'
     buttons = [
         [
             InlineKeyboardButton('🔍 Cari Lagi', switch_inline_query_current_chat=query),
             InlineKeyboardButton('✲ Donasi', url=url),
         ],
-        [InlineKeyboardButton('⌘ Daftar Anime', url="https://t.me/downloadanimebatch/302")]
+        [InlineKeyboardButton('⌘ Daftar Anime', callbackdata=f"bantuan")]
     ]
     return InlineKeyboardMarkup(buttons)
 
