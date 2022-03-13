@@ -71,12 +71,12 @@ async def answer(bot, query):
         )
 
 
-def get_reply_markup(username, query, from_user):
+def get_reply_markup(username, query, id):
     url = 'trakteer.id/ccgnimeX'
     buttons = [
         [
             InlineKeyboardButton('🔍 Cari Lagi', switch_inline_query_current_chat=query),
-            InlineKeyboardButton('Hapus', callback_data=f"neko_delete {from_user}"),
+            InlineKeyboardButton('Hapus', callback_data=f"neko_delete {id}"),
         ],
         [InlineKeyboardButton('⌘ Daftar Anime', url="https://t.me/downloadanimebatch/302")]
     ]
