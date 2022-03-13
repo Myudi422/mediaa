@@ -4,7 +4,7 @@ from urllib.parse import quote
 from pyrogram import Client, emoji, filters
 from pyrogram.errors import UserNotParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-
+from telegram.CallbackQuery import id, from_user
 from utils import get_search_results, InlineQueryResultCachedDocument
 from info import CACHE_TIME, SHARE_BUTTON_TEXT, AUTH_USERS, AUTH_CHANNEL
 
@@ -71,12 +71,12 @@ async def answer(bot, query):
         )
 
 
-def get_reply_markup(username, query):
+def get_reply_markup(username, query, from_user):
     url = 'trakteer.id/ccgnimeX'
     buttons = [
         [
             InlineKeyboardButton('🔍 Cari Lagi', switch_inline_query_current_chat=query),
-            InlineKeyboardButton('Hapus', callback_data=f"neko_delete {username}"),
+            InlineKeyboardButton('Hapus', callback_data=f"neko_delete {from_user}"),
         ],
         [InlineKeyboardButton('⌘ Daftar Anime', url="https://t.me/downloadanimebatch/302")]
     ]
