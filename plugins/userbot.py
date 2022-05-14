@@ -2,7 +2,7 @@ import logging
 import asyncio
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
-from info import USERBOT_STRING_SESSION, API_ID, API_HASH, ADMINS, id_pattern
+from info import USERBOT_STRING_SESSION, API_ID, API_HASH, ADMINS, id_pattern, PROTECT_CONTENT
 from utils import save_file
 
 logger = logging.getLogger(__name__)
@@ -38,6 +38,7 @@ async def index_files(bot, message):
                                     chat,
                                     user_message.message_id,
                                     replies=0,
+                                    protect_content=PROTECT_CONTENT
                                 )
                             except FloodWait as e:
                                 await asyncio.sleep(e.x)
@@ -45,6 +46,7 @@ async def index_files(bot, message):
                                     chat,
                                     user_message.message_id,
                                     replies=0,
+                                    protect_content=PROTECT_CONTENT
                                 )
                             
                             for file_type in ("document", "video", "audio"):
